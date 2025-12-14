@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Slots Fundamentals</title>
+</head>
+
+<body>
+    <div id="app">
+        <page-layout>
+            <template #header>
+                Пример странички с шаблоном через слоты
+            </template>
+            <p>Lorem и что там дальше было, не помню. Короче, что-то. Страшное заклинание для призыва демонов. Да-да,
+                тех самых.</p>
+            <p>И еще один параграф просто чтоб был, непонятно о чем в сущности.</p>
+            <template #footer>
+                Если вдруг что, свяжитесь с нами по телефону +7(999)999-99-99
+            </template>
+        </page-layout>
+    </div>
+    <script type="text/x-template" id="page-layout-template">
+        <header>
+            <h1>
+                <slot name="header">
+                    Здесь может быть заголовок            
+                </slot>
+            </h1>
+        </header>
+        <hr>
+        <main>
+            <slot>
+                <p>Параграф для основного контента</p>
+                <p>И еще один</p>
+            </slot>
+        </main>
+        <hr>
+        <footer>
+            <p>
+                <slot name="footer">            
+                    Здесь какие-то контакты
+                </slot>
+            </p>
+        </footer>  
+    </script>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="app-new.js"></script>
+</body>
+
+</html>
